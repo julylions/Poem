@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic,strong)NSMutableArray* newsArr;
+@property(nonatomic,assign)NSInteger page;
+
 @end
 
 @implementation YMNewsController
@@ -27,6 +29,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _page = 1;
     //获取新闻
     [self requestDataWithApi:NewsListURL Param:@{@"type":self.type,@"p":@"1"}.mutableCopy];
    
@@ -37,6 +40,12 @@
         [self requestDataWithApi:NewsListURL Param:@{@"type":self.type,@"p":@"1"}.mutableCopy];
 
     }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        _page ++;
+         [self requestDataWithApi:NewsListURL Param:@{@"type":self.type,@"p":@(_page).stringValue}.mutableCopy];
+    }];
+    
 }
 -(NSMutableArray *)newsArr{
     if (!_newsArr) {
@@ -47,7 +56,17 @@
 -(void)requestDataWithApi:(NSString* )api Param:(NSMutableDictionary* )param{
     
     [[HttpManger sharedInstance]callHTTPReqAPI:api params:param view:self.view loading:YES tableView:self.tableView completionHandler:^(id task, id responseObject, NSError *error) {
-        self.newsArr = [NewsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        NSMutableArray* tmpAllArr = [[NSMutableArray alloc]init];
+        if (_page == 1) {
+            self.newsArr = [NewsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        }else{
+            NSMutableArray* tmpArr = [NewsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [tmpAllArr addObjectsFromArray:self.newsArr];
+            [tmpAllArr addObjectsFromArray:tmpArr];
+            self.newsArr = tmpAllArr;
+        }
         [self.tableView reloadData];
     }];
 }

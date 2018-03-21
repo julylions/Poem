@@ -1148,7 +1148,7 @@
 				TargetAttributes = {
 					548E48D21F21E45B006902E2 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = J37ACKQ537;
+						DevelopmentTeam = BXNJAEDFYS;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1559,7 +1559,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CalendarEveryday/CalendarEveryday.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = J37ACKQ537;
+				DEVELOPMENT_TEAM = BXNJAEDFYS;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = CalendarEveryday/Common/Http/PreHeader.h;
 				INFOPLIST_FILE = CalendarEveryday/Info.plist;
@@ -1569,7 +1569,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CalendarEveryday/Frame/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tickets.-qqq";
+				PRODUCT_BUNDLE_IDENTIFIER = com.youmeng.every;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1583,7 +1583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CalendarEveryday/CalendarEveryday.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = J37ACKQ537;
+				DEVELOPMENT_TEAM = BXNJAEDFYS;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = CalendarEveryday/Common/Http/PreHeader.h;
 				INFOPLIST_FILE = CalendarEveryday/Info.plist;
@@ -1594,7 +1594,7 @@
 					"$(PROJECT_DIR)/CalendarEveryday/Frame/JPush",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tickets.-qqq";
+				PRODUCT_BUNDLE_IDENTIFIER = com.youmeng.every;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
