@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "title"; ObjectID = "1xz-ga-QPR"; */
+"1xz-ga-QPR.text" = "title";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "8ug-wE-mZh"; */
+"8ug-wE-mZh.title" = "Root View Controller";
+
+/* Class = "UITabBarItem"; title = "poem"; ObjectID = "9B7-jl-Zyb"; */
+"9B7-jl-Zyb.title" = "poem";
+
+/* Class = "UITabBarItem"; title = "favorite"; ObjectID = "LAk-Co-hDl"; */
+"LAk-Co-hDl.title" = "favorite";
+
+/* Class = "UIButton"; normalTitle = "intrduce"; ObjectID = "W87-UQ-1JM"; */
+"W87-UQ-1JM.normalTitle" = "intrduce";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "aC5-uZ-S5K"; */
+"aC5-uZ-S5K.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "random"; ObjectID = "qP8-gc-gvY"; */
+"qP8-gc-gvY.title" = "random";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "uF8-qZ-VaS"; */
+"uF8-qZ-VaS.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uWz-Tk-CwN"; */
+"uWz-Tk-CwN.text" = "Label";
+
+/* Class = "UISegmentedControl"; v27-NW-L8t.segmentTitles[0] = "诗  词"; ObjectID = "v27-NW-L8t"; */
+"v27-NW-L8t.segmentTitles[0]" = "诗  词";
+
+/* Class = "UISegmentedControl"; v27-NW-L8t.segmentTitles[1] = "作  者"; ObjectID = "v27-NW-L8t"; */
+"v27-NW-L8t.segmentTitles[1]" = "作  者";
+
+/* Class = "UITabBarItem"; title = "random"; ObjectID = "xAh-EV-rh0"; */
+"xAh-EV-rh0.title" = "News";

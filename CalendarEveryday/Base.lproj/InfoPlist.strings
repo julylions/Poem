@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  CalendarEveryday
+
+  Created by APPLE on 17/9/2.
+  Copyright © 2017年 YouMeng. All rights reserved.
+*/
+"CFBundleDisplayName" = "Poem";
+"UILaunchStoryboardName" = "LaunchScreen-English";

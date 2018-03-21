@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  CalendarEveryday
+
+  Created by YouMeng on 2017/9/1.
+  Copyright © 2017年 YouMeng. All rights reserved.
+*/
+"random" = "新闻";
+"main" = "诗词列表";
+"favorite" = "个人喜好";
+"search" = "搜索";
+"poem" = "诗词";
+"author" = "作者";
+"like" = "喜欢";
+"detail" = "详细介绍";
+"poem body" = "诗 体";
