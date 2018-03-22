@@ -7,7 +7,7 @@ pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod 'SDWebImage'
 pod 'MJExtension'
-
+pod 'ReactiveCocoa', '2.5'
 
 
 end

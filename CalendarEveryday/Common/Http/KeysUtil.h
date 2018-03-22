@@ -58,6 +58,7 @@
 //新的  Master Secret : @"d0cd72c507688a11df718249"
 #define kChannel              @"App Store"
 #define kIsProduct            YES
+#define kIsAudit              @"isAudit"
 
 
 #define kUMAppKey       @"58b3ea40c62dca548d0023b4"

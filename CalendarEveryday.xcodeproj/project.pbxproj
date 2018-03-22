@@ -131,6 +131,9 @@
 		54B300651F26EC4100D641B3 /* LTSCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B300591F26EC4100D641B3 /* LTSCircleView.m */; };
 		54B300681F271D2B00D641B3 /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B300671F271D2A00D641B3 /* NewsModel.m */; };
 		54B3006B1F271ED700D641B3 /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3006A1F271ED700D641B3 /* WeatherModel.m */; };
+		54EE00E4206260F500D34A7E /* CommandTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EE00E3206260F500D34A7E /* CommandTool.m */; };
+		54EE00E82062611900D34A7E /* NoServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EE00E62062611800D34A7E /* NoServerViewController.m */; };
+		54EE00E92062611900D34A7E /* NoServerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54EE00E72062611900D34A7E /* NoServerViewController.xib */; };
 		BB588C27E5282C3680BB6DD7 /* libPods-CalendarEveryday.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28908D1383CEDAC9E21BEB71 /* libPods-CalendarEveryday.a */; };
 /* End PBXBuildFile section */
 
@@ -390,6 +393,11 @@
 		54B300671F271D2A00D641B3 /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
 		54B300691F271ED700D641B3 /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
 		54B3006A1F271ED700D641B3 /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
+		54EE00E2206260F400D34A7E /* CommandTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandTool.h; sourceTree = "<group>"; };
+		54EE00E3206260F500D34A7E /* CommandTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandTool.m; sourceTree = "<group>"; };
+		54EE00E52062611800D34A7E /* NoServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoServerViewController.h; sourceTree = "<group>"; };
+		54EE00E62062611800D34A7E /* NoServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoServerViewController.m; sourceTree = "<group>"; };
+		54EE00E72062611900D34A7E /* NoServerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoServerViewController.xib; sourceTree = "<group>"; };
 		DC3056E578BF203BD84BEA30 /* Pods-CalendarEveryday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarEveryday.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarEveryday/Pods-CalendarEveryday.release.xcconfig"; sourceTree = "<group>"; };
 		F3A63E4AB6C688575DCBA0A9 /* Pods-CalendarEveryday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarEveryday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarEveryday/Pods-CalendarEveryday.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -690,6 +698,9 @@
 		548E49231F21EA90006902E2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				54EE00E52062611800D34A7E /* NoServerViewController.h */,
+				54EE00E62062611800D34A7E /* NoServerViewController.m */,
+				54EE00E72062611900D34A7E /* NoServerViewController.xib */,
 				54854C001F4FC20F007B6075 /* YMWebController.h */,
 				54854C011F4FC20F007B6075 /* YMWebController.m */,
 				54854C021F4FC20F007B6075 /* YMWebController.xib */,
@@ -734,6 +745,8 @@
 		548E49271F21EAC1006902E2 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				54EE00E2206260F400D34A7E /* CommandTool.h */,
+				54EE00E3206260F500D34A7E /* CommandTool.m */,
 				18D598D71F51CAAC00834887 /* DBUtil.h */,
 				18D598D81F51CAAC00834887 /* DBUtil.m */,
 				548E49791F21F2CC006902E2 /* Factory.h */,
@@ -1210,6 +1223,7 @@
 				54B3003F1F26E86300D641B3 /* YMCalendarController.xib in Resources */,
 				548E496E1F21F05C006902E2 /* YMLoginController.xib in Resources */,
 				548E491A1F21E922006902E2 /* Info.plist in Resources */,
+				54EE00E92062611900D34A7E /* NoServerViewController.xib in Resources */,
 				548E493C1F21EC72006902E2 /* YMWeatherController.xib in Resources */,
 				18BCA5F91F5ADB4800474F48 /* InfoPlist.strings in Resources */,
 				18153EAC1F5AE17E006CB7F8 /* LaunchScreen-English.storyboard in Resources */,
@@ -1247,9 +1261,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CalendarEveryday/Pods-CalendarEveryday-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1262,13 +1279,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalendarEveryday-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FA827101E756AD48BFBF39C0 /* [CP] Embed Pods Frameworks */ = {
@@ -1370,6 +1390,7 @@
 				54B300361F2614C900D641B3 /* DataCalender.m in Sources */,
 				548E49561F21EF71006902E2 /* YMTool.m in Sources */,
 				548E49AB1F21F6A9006902E2 /* SDWaitingView.m in Sources */,
+				54EE00E4206260F500D34A7E /* CommandTool.m in Sources */,
 				18D598F31F53091E00834887 /* PoemMainController.m in Sources */,
 				54B300371F2614C900D641B3 /* UICalender.m in Sources */,
 				5458334E1F288D93009F3948 /* News1ImageCell.m in Sources */,
@@ -1380,6 +1401,7 @@
 				548E491B1F21E922006902E2 /* DAYComponentView.m in Sources */,
 				548E499B1F21F6A2006902E2 /* TAAnimatedDotView.m in Sources */,
 				18D598D91F51CAAC00834887 /* DBUtil.m in Sources */,
+				54EE00E82062611900D34A7E /* NoServerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

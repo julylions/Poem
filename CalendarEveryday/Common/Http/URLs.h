@@ -19,6 +19,8 @@
 
 #define  BaseApi         @"http://zm.youmeng.com/Calendar/" //@"http://apiyzt.youmeng.com/"  //
 
+#define kUIWindow             [[[UIApplication sharedApplication] delegate] window] //获得window
+
 //请求首页数据
 #define HomeDataURL        [NSString stringWithFormat:@"%@%@",BaseApi,@"Index/getIndexList"]
 //获取新闻导航菜单

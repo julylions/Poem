@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "YMTabBarController.h"
 #import "YMWelcomeController.h"
-
 #import <AVFoundation/AVFoundation.h>
 #import "JPUSHService.h"
 // iOS10注册APNs所需头文件
@@ -24,6 +23,7 @@
 #import "YMTool.h"
 #import "YMTopNewsController.h"
 #import "YMTabBarController.h"
+#import "CommandTool.h"
 
 
 @interface AppDelegate ()<UIAlertViewDelegate>
@@ -101,17 +101,17 @@
           //中文情况下请求数据
         DDLog(@"跳转");
         //监听网络情况
-        if (![YMTool connectedToNetwork]) {
-            UIViewController* vc = [[UIViewController alloc]init];
-            vc.view.backgroundColor = WhiteColor;
-            self.window.rootViewController = vc;
-            [self.window makeKeyAndVisible];
-            
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请连接网络" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-            [alert show];
-            
-            return YES;
-        }
+//        if (![YMTool connectedToNetwork]) {
+//            UIViewController* vc = [[UIViewController alloc]init];
+//            vc.view.backgroundColor = WhiteColor;
+//            self.window.rootViewController = vc;
+//            [self.window makeKeyAndVisible];
+        
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请连接网络" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//            [alert show];
+//
+//            return YES;
+//        }
         //加载数据前在显示启动图
         self.window.rootViewController =  [[UIStoryboard storyboardWithName:@"LaunchScreen-Chinese" bundle:nil] instantiateInitialViewController];
         // 让窗口变成主窗口并且可见
@@ -122,43 +122,71 @@
 //        [self.window makeKeyAndVisible];
         
         [self pushURL:nil];
-       
+        
     }else{
         [self pushToPoem];
     }
      return YES;
 }
 -(void)pushURL:(UITapGestureRecognizer* )tap{
-    AFHTTPSessionManager *httpMgr = [AFHTTPSessionManager manager];
-    httpMgr.responseSerializer = [AFHTTPResponseSerializer serializer];
-    //AFN设置请求头方法
-    [httpMgr.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=utf8" forHTTPHeaderField:@"Content-Type"];
-    NSDictionary* param  = @{
-                             @"type":@"ios",
-                             @"appid":kAppleId
-                             };
-    [httpMgr GET:[NSString stringWithFormat:@"http://app.412988.com/Lottery_server/check_and_get_url.php?type=ios&appid=%@",kAppleId] parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        id resObj = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        DDLog(@" resObj == %@",resObj);
-        NSDictionary* dataDic = resObj[@"data"];
-        if (![NSString isEmptyString:dataDic]) {
-            if ([dataDic[@"show_url"] integerValue] == 1 ) {
-               // [self pushToLauch];
-                //加载网页
-                YMWebController * wvc = [[YMWebController alloc]init];
-                wvc.urlStr = dataDic[@"url"];
-                self.window.rootViewController = wvc;
-                
-            }else{
-                [self pushToPoem];
-            }
+    RACSubject *subject_init = [[RACSubject alloc] init];
+    CommandTool * command = [[CommandTool alloc] init];
+    [[[subject_init flattenMap:^RACStream *(id value) {
+        // 检查是否在审核
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            [[command.command_Audit.executionSignals switchToLatest] subscribeNext:^(NSDictionary * x) {
+//                [kUserDefaults setBool:[x boolValue] forKey:kIsAudit];
+//                [kUserDefaults synchronize];
+                [subscriber sendNext:x];
+                [subscriber sendCompleted];
+            }];
+            [command.command_Audit execute:@YES];
+            return nil;
+        }];
+    }] flattenMap:^RACStream *(NSDictionary* value){
+        NSLog(@"value == %@",value);
+        if ([value[@"show_url"] integerValue] == 1) {
+            YMWebController * wvc = [[YMWebController alloc]init];
+            wvc.urlStr = value[@"url"];
+            kUIWindow.rootViewController = wvc;
         }else{
-            [self pushToPoem];
+          [self pushToPoem];
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self pushToPoem];
+        return nil;
+    }] subscribeNext:^(id x) {
+        
     }];
+    [subject_init sendNext:@1];
+//    AFHTTPSessionManager *httpMgr = [AFHTTPSessionManager manager];
+//    httpMgr.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    //AFN设置请求头方法
+//    [httpMgr.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=utf8" forHTTPHeaderField:@"Content-Type"];
+//    NSDictionary* param  = @{
+//                             @"type":@"ios",
+//                             @"appid":kAppleId
+//                             };
+//    [httpMgr GET:[NSString stringWithFormat:@"http://app.412988.com/Lottery_server/check_and_get_url.php?type=ios&appid=%@",kAppleId] parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        id resObj = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+//        DDLog(@" resObj == %@",resObj);
+//        NSDictionary* dataDic = resObj[@"data"];
+//        if (![NSString isEmptyString:dataDic]) {
+//            if ([dataDic[@"show_url"] integerValue] == 1 ) {
+//               // [self pushToLauch];
+//                //加载网页
+//                YMWebController * wvc = [[YMWebController alloc]init];
+//                wvc.urlStr = dataDic[@"url"];
+//                self.window.rootViewController = wvc;
+//
+//            }else{
+//                [self pushToPoem];
+//            }
+//        }else{
+//            [self pushToPoem];
+//        }
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        [self pushToPoem];
+//    }];
 }
 
 -(BOOL)pushToPoem{
